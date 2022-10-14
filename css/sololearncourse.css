@@ -25,3 +25,33 @@
         grid-template-columns: auto;
     }
 }
+
+.buttons {
+    padding: 20px 0 40px;
+}
+
+.button {
+    transition: all .2s ease-in-out;
+    -webkit-appearance: none;
+    border-radius: 100px;
+    font-family: inherit;
+    appearance: none;
+    background: none;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 20px;
+    outline: none;
+    opacity: 0.4;
+    border: none;
+    color: rgb(0, 0, 0);
+}
+
+.button:hover,
+.button.active {
+    opacity: 1;
+}
+
+.hide {
+    display: none;
+}

@@ -11,20 +11,28 @@
 
 <body>
     <h1 style="text-align: center;">My Courses</h1>
+    <div class="buttons">
+        <button class="button all active">All</button>
+        <button class="button white">White</button>
+        <button class="button grey">Grey</button>
+        <button class="button blue">Blue</button>
+        <button class="button yellow">Yellow</button>
+        <button class="button red">Red</button>
+    </div>
     <section class="coursegrid">
-        <div class="coursebox"><img class="courselogo" src="/imgs/coverimg.jpg">
+        <div class="coursebox blue"><img class="courselogo" src="/imgs/coverimg.jpg">
+            <p class="coursetext">HTML</p>
+        </div>
+        <div class="coursebox blue"><img class="courselogo" src="/imgs/coverimg.jpg">
             <p class="coursetext">HTML</p>
         </div>
         <div class="coursebox"><img class="courselogo" src="/imgs/coverimg.jpg">
             <p class="coursetext">HTML</p>
         </div>
-        <div class="coursebox"><img class="courselogo" src="/imgs/coverimg.jpg">
+        <div class="coursebox blue"><img class="courselogo" src="/imgs/coverimg.jpg">
             <p class="coursetext">HTML</p>
         </div>
-        <div class="coursebox"><img class="courselogo" src="/imgs/coverimg.jpg">
-            <p class="coursetext">HTML</p>
-        </div>
-        <div class="coursebox"><img class="courselogo" src="/imgs/coverimg.jpg">
+        <div class="coursebox blue"><img class="courselogo" src="/imgs/coverimg.jpg">
             <p class="coursetext">HTML</p>
         </div>
         <div class="coursebox"><img class="courselogo" src="/imgs/coverimg.jpg">
@@ -40,6 +48,49 @@
             <p class="coursetext">HTML</p>
         </div>
     </section>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script id="rendered-js">
+        // Check active classes
+        var checkClass = function() {
+            if ($('.coursebox').hasClass('hide')) {
+                $('.coursebox').removeClass('hide');
+            }
+        };
+
+        // Category filters
+        $('.all').click(function() {
+            checkClass();
+        });
+        $('.blue').click(function() {
+            checkClass();
+            $('.coursebox:not(.blue)').toggleClass('hide');
+        });
+        $('.white').click(function() {
+            checkClass();
+            $('.coursebox:not(.white)').toggleClass('hide');
+        });
+        $('.grey').click(function() {
+            checkClass();
+            $('.coursebox:not(.grey)').toggleClass('hide');
+        });
+        $('.yellow').click(function() {
+            checkClass();
+            $('.coursebox:not(.yellow)').toggleClass('hide');
+        });
+        $('.red').click(function() {
+            checkClass();
+            $('.coursebox:not(.red)').toggleClass('hide');
+        });
+
+        // Active tag
+        $('.button').click(function() {
+            $('.button').removeClass('active');
+            $(this).addClass('active');
+        });
+        //# sourceURL=pen.js
+    </script>
 </body>
 
 </html>
