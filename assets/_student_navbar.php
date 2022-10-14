@@ -30,9 +30,8 @@
         <div class="logo"></div>
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="events.php">Events</a></li>
-            <li><a href="internships">Internships</a></li>
-            <li><a href="logout.php">Log out</a></li>
+            <li><a href="events.php">About us</a></li>
+            <li style="background-color: #2F65B9; color:#fff; padding: 5px 20px;"><a href="logout.php">GO PRO</a></li>
         </ul>
         <div class="burger">
             <div class="line line1"></div>
@@ -68,12 +67,6 @@
                         <a href="#">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Groups</span>
                         </a>
                     </li>
                     <li class="nav-link">
