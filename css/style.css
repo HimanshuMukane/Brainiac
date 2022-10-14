@@ -1,0 +1,118 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+a { text-decoration: none; }
+
+body{
+    background-color: #f2f3ef;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0px;
+}
+
+.col2{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px ;
+}
+
+.edit,.people-known,.people-view{
+    height: 400px;
+    background-color: white;
+    border-radius: 1rem;
+}
+.main{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile{
+    position: relative;
+}
+
+#profile-bg{
+    height: 100px;
+    background-image: url("../imgs/background.jpg");
+    background-size: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+.name-section{
+    height: 300px;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 50px 20px 20px 20px;
+    gap: 5px;
+}
+.name{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.location{
+    font-size: 0.9rem;
+    color: #5b5b5b;
+}
+.profile-image{
+    position: absolute;
+    top: 40px;
+    left: 30px;
+
+}
+#dp{
+    width: 100px;
+    border-radius: 100%;
+}
+
+
+
+.bio,.personal,.Education,.Certification,.Skills,.contactus{
+    background-color:white;
+    width: 100%;
+    height: 200px;
+    border-radius: 1rem;
+}
+
+
+@media screen and (max-width: 850px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .col2{
+        width: 500px;
+    }
+    .main{
+        width: 500px;
+    }
+}
+@media screen and (max-width: 530px) {
+
+    .col2{
+        width: 100%;
+        min-width: 300px;
+    }
+    .main{
+        width: 100%;
+        min-width: 300px;
+    }
+}
+
+
+

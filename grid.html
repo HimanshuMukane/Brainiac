@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang='en' class=''>
+
+<head>
+
+    <meta charset='UTF-8'>
+    <title>Grid</title>
+
+    <style class="INLINE_PEN_STYLESHEET_ID">
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+        .title {
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            font-size: 27px;
+            font-family: "Roboto";
+            font-weight: 600;
+            z-index: -1;
+        }
+        
+        .buttons {
+            max-width: 92%;
+            width: 900px;
+            text-align: right;
+            margin: 20px auto 0;
+            padding-right: 3%;
+        }
+        
+        button {
+            height: 36px;
+            width: 40px;
+            margin-left: 4px;
+            font-size: 24px;
+            color: orange;
+            text-align: center;
+            line-height: 1.4;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+            background-color: white;
+            box-shadow: 0px 1px 2px #bbb;
+        }
+        
+        button:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 3px #666;
+        }
+        
+        button.on {
+            color: white;
+            background-color: #ccc;
+        }
+        
+        .wrapper {
+            max-width: 92%;
+            width: 900px;
+            margin: 10px auto 40px;
+            padding: 20px 20px 0;
+            background-color: #ddd;
+            font-family: Roboto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .item {
+            background-color: #fff;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0px 1px 3px #bbb;
+        }
+        
+        img {
+            /* display: inline-block; */
+            float: left;
+            max-height: 90%;
+            max-width: 90%;
+            padding: 1.2%;
+        }
+        
+        a {
+            display: block;
+            transition: 0.2s;
+        }
+        
+        a:hover {
+            opacity: 0.9;
+            cursor: pointer;
+        }
+        
+        h2 {
+            transition: 0.2s;
+        }
+        
+        h2:hover {
+            color: #666;
+            cursor: pointer;
+        }
+        
+        span {
+            font-size: 24px;
+        }
+        
+        span.price {
+            color: orange;
+        }
+        
+        .list .item {
+            width: 100%;
+            margin: 0 auto 20px;
+        }
+        
+        .list img {
+            max-width: 30%;
+        }
+        
+        .list .details {
+            float: left;
+            max-width: 66%;
+            margin-top: 4%;
+            margin-left: 1%;
+        }
+        
+        .grid .item {
+            width: 32%;
+            margin: 0 2% 20px 0;
+            float: left;
+            text-align: center;
+        }
+        
+        .grid .item:nth-child(3n) {
+            margin-right: 0;
+        }
+        
+        .grid img {
+            padding-top: 0;
+            max-width: 90%;
+            margin: 0 auto;
+            float: none;
+        }
+        
+        .grid h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        
+        .grid span {
+            display: inline-block;
+            margin-top: -6px;
+            font-size: 19px;
+        }
+        
+        .grid .details {
+            float: none;
+            max-width: 90%;
+            margin: -20px auto 0;
+        }
+        
+        .grid .details p {
+            margin-top: 8px;
+        }
+    </style>
+
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-7549a40147ccd0ba0a6b5373d87e770e49bb4689f1c2dc30cccc7463f207f997.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-5e03f34e38152f20eb79c96b0b89c2d99c5085e9ae9386dc71e2f0b3c30bf513.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+</head>
+
+<body translate="no">
+    <div class="title">A Simple List/Grid Toggle</div>
+    <div class="buttons">
+        <button class="list-view on"><i class="fa fa-bars">L</i></button>
+        <button class="grid-view"><i class="fa fa-th">G</i></button>
+    </div>
+    <div class="wrapper list">
+    </div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script id="rendered-js">
+        howMany = 12;
+        listButton = $('button.list-view');
+        gridButton = $('button.grid-view');
+        wrapper = $('div.wrapper');
+
+        div = '<div class="item"><a href="javascript:void(0);"><img src="http://files.braadmartin.com/gretsch-catalina-club-in-natural.jpg" /></a><div class="details"><h2>Gretsch Catalina Club Jazz</h2><span>Yours for only <span class="price">$599.99</span></span><p>What a classic kit! Available in several great colors, including Natural (shown), Walnut Glaze, White Marine, Copper Sparkle, and Black Galaxy. Every drummer needs one of these.</p></div></div>';
+
+        // Set up divs
+        for (i = 0; i < howMany; i++) {
+            if (window.CP.shouldStopExecution(0)) break;
+            $('.wrapper').append(div);
+        }
+        window.CP.exitedLoop(0);
+
+        listButton.on('click', function() {
+
+            gridButton.removeClass('on');
+            listButton.addClass('on');
+            wrapper.removeClass('grid').addClass('list');
+
+        });
+
+        gridButton.on('click', function() {
+
+            listButton.removeClass('on');
+            gridButton.addClass('on');
+            wrapper.removeClass('list').addClass('grid');
+
+        });
+        //# sourceURL=pen.js
+    </script>
+
+
+</body>
+
+</html>

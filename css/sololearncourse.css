@@ -1,0 +1,27 @@
+.coursegrid {
+    width: 60vw;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 1vw;
+    grid-row-gap: 1vw;
+    margin: auto;
+}
+
+.coursebox {
+    background-color: rgb(194, 0, 0);
+    height: 250px;
+    width: 250px;
+    text-align: center;
+}
+
+.courselogo {
+    border-radius: 500px;
+    height: 150px;
+    width: 150px;
+}
+
+@media (max-width: 980px) {
+    .coursegrid {
+        grid-template-columns: auto;
+    }
+}

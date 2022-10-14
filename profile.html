@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .profile-page .coverimg {
+            height: 30vh;
+            width: 100vw;
+            background-image: url("imgs/coverimg.jpg");
+            background-size: cover;
+        }
+        
+        .profile-page .profile1 {
+            margin: 0 25px;
+            background-color: rgb(115, 115, 115);
+            height: 25vh;
+            border-radius: 10px;
+        }
+        
+        .profile-page .profile1 .profileimg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-page .profile1 img {
+            width: 175px;
+            border-radius: 10px;
+            margin: 0 auto;
+            border: white solid 4px;
+            z-index: 9;
+        }
+        
+        .profile-page .profile1 .profiletype {
+            text-align: center;
+            background-color: #2F65B9;
+            color: white;
+            padding: 5px;
+            width: 90px;
+            border-radius: 5px;
+            z-index: 100;
+        }
+        
+        .profile-page .profile1 .translatey {
+            transform: translateY(-26vh);
+        }
+        
+        .profile-page .profile1 .img-raised {
+            transform: translateY(-22vh);
+        }
+        
+        .profile-page .profile1 .name {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            margin-top: -180px;
+            text-align: center;
+            font-weight: 200;
+        }
+        
+        .profile-page .profile1 .name h3 {
+            font-weight: 200;
+        }
+        
+        .profile-page .profile1 .name h1 {
+            font-weight: 200;
+        }
+    </style>
+
+</head>
+
+<body translate="no">
+
+    <body class="profile-page">
+        <div class="coverimg"></div>
+        <div class="profile1">
+            <div class="profileimg">
+                <img src="/imgs/profile.jpg" alt="Circle Image" class="img-raised  rounded-circle img-fluid">
+                <div class=" translatey profiletype">Student</div>
+            </div>
+            <div class="name">
+                <div></div>
+                <h1>Christian Louboutin</h1>
+                <div></div>
+                <div></div>
+                <h3>Location Website</h3>
+                <div></div>
+            </div>
+        </div>
+
+
+
+    </body>
+
+</body>
+
+</html>

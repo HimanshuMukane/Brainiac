@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Pricing Table</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #a1a2ac;
+        }
+        
+        section {
+            padding: 3rem 0;
+            background: #fff;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            color: #242424;
+        }
+        
+        h1.section-title {
+            font-size: 2.2rem;
+            margin-bottom: 1.3rem;
+        }
+        
+        a {
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+        
+        p.lead {
+            color: #a1a2ac;
+            margin-bottom: 6rem;
+        }
+        
+        .btn {
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .btn-outline-signin {
+            border: 1px solid #e1e8ee;
+        }
+        
+        .btn-start {
+            background: #fd4d66;
+            color: #fff;
+            padding: 0.8rem;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .btn-start:hover,
+        .btn-start:focus {
+            color: #fff;
+        }
+        
+        .btn-outline-start {
+            background: #fff;
+            border: 1px solid #fddbe4;
+            color: #fd4d66;
+            padding: 0.8rem;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .btn-outline-start:hover,
+        .btn-outline-start:focus {
+            color: #fd4d66;
+        }
+        
+        section.pricing-plans {
+            background: #fff;
+            padding: 8rem 0;
+        }
+        
+        #navbar-main {
+            position: absolute;
+            font-family: 'Roboto', sans-serif;
+            background: #fff;
+            border-bottom: 1px solid #e1e8ee;
+        }
+        
+        #navbar-main .navbar-brand {
+            color: #fd4d66;
+            text-transform: lowercase;
+            font-weight: 600;
+            font-size: 1.40rem;
+        }
+        
+        #navbar-main .navbar-toggler {
+            border: none;
+            font-size: 2rem;
+        }
+        
+        #navbar-main .navbar-nav>li.nav-item>a {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .pricing-box {
+            padding: 1rem;
+            background: #fff;
+            border: 1px solid #e1e8ee;
+        }
+        
+        .pricing-box .card-title {
+            font-size: 1rem;
+            line-height: 2;
+        }
+        
+        .pricing-box .currency {
+            top: -1.50rem;
+            font-size: 1.50rem;
+            letter-spacing: 0.75rem;
+            margin-right: -1.5rem;
+        }
+        
+        .pricing-box .amount {
+            font-size: 3.8rem;
+        }
+        
+        .pricing-box .month {
+            color: #a1a2ac;
+            margin-left: -0.8rem;
+        }
+        
+        .pricing-box .list-group {
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-box .list-group-item {
+            padding: 0.45rem 1rem;
+            border: none;
+        }
+        
+        .pricing-premium {
+            position: relative;
+            z-index: 1;
+            -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .09);
+            -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .09);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .09);
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-box {
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media only screen and (min-width: 992px) {
+            #navbar-main {
+                background: transparent;
+                border-bottom: 1px solid transparent;
+            }
+            #navbar-main .navbar-nav>li.nav-item>a {
+                color: #a1a2ac;
+                padding: 1rem;
+            }
+            #navbar-main .navbar-nav>li.nav-item>a:hover,
+            #navbar-main .navbar-nav>li.nav-item>a:focus {
+                color: #242424;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .pricing-premium {
+                -webkit-transform: scale(1.05);
+                -moz-transform: scale(1.05);
+                transform: scale(1.05);
+            }
+        }
+    </style>
+
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+
+
+
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+
+
+</head>
+
+<body translate="no">
+    <nav class="navbar navbar-toggleable-md navbar-light fixed-top" id="navbar-main">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<i class="ion-navicon"></i>
+		</button>
+        <a class="navbar-brand" href="#" title="Home">
+            <i class="ion-android-cloud-outline"></i> Katocloud
+        </a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" title="Services">
+						Services
+					</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" title="Pricing">
+						Pricing
+					</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" title="Help">
+						Help
+					</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-signin nav-link" href="#" title="Sign In">
+						Sign In
+					</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="pricing-plans text-center">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-sm-12 col-md-8 col-md-offset-2">
+                    <h1 class="section-title">
+                        Pricing Plans
+                    </h1>
+                    <p class="lead">
+                        Our cloud hosting plans are designed for companies of all sizes.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 animated slideInRight">
+                    <div class="card pricing-box rounded">
+                        <div class="card-block">
+                            <h4 class="card-title">
+                                Basic
+                            </h4>
+                            <h6 class="card-text">
+                                <sup class="currency">
+									$
+								</sup>
+                                <span class="amount">
+									9
+								</span>
+                                <span class="month">
+									/ mo
+								</span>
+                            </h6>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-center d-inline-block">
+                                1 GB memory
+                            </li>
+                            <li class="list-group-item text-center d-inline-block">
+                                1 core processor
+                            </li>
+                            <li class="list-group-item text-center d-inline-block">
+                                30 GB SSD Disk
+                            </li>
+                            <li class="list-group-item text-center d-inline-block">
+                                2 TB Transfer
+                            </li>
+                        </ul>
+                        <div class="card-block">
+                            <a href="#" class="btn btn-outline-start" title="Get Started">
+								Get Started
+							</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card pricing-box pricing-premium">
+                        <div class="card-block">
+                            <h4 class="card-title">
+                                Premium
+                            </h4>
+                            <h6 class="card-text">
+                                <sup class="currency">
+									$
+								</sup>
+                                <span class="amount">
+									19
+								</span>
+                                <span class="month">
+									/ mo
+								</span>
+                            </h6>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-center d-inline-block">
+                                2 GB memory
+                            </li>
+                            <li class="list-group-item text-center d-inline-block">
+                                2 core processor
+                            </li>
+                            <li class="list-group-item text-center d-inline-block">
+                                40 GB SSD Disk
+                            </li>
+                            <li class="list-group-item text-center d-inline-block">
+                                3 TB Transfer
+                            </li>
+                        </ul>
+                        <div class="card-block">
+                            <a href="#" class="btn btn-start" title="Get Started">
+								Get Started
+							</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animated slideInLeft">
+                    <div class="card pricing-box">
+                        <div class="card-block">
+                            <h4 class="card-title">
+                                Gold
+                            </h4>
+                            <h6 class="card-text">
+                                <sup class="currency">
+									$
+								</sup>
+                                <span class="amount">
+									39
+								</span>
+                                <span class="month">
+									/ mo
+								</span>
+                            </h6>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-center d-inline-block">
+                                4 GB memory
+                            </li>
+                            <li class="list-group-item text-center d-inline-block">
+                                2 core processor
+                            </li>
+                            <li class="list-group-item text-center d-inline-block">
+                                60 GB SSD Disk
+                            </li>
+                            <li class="list-group-item text-center d-inline-block">
+                                4 TB Transfer
+                            </li>
+                        </ul>
+                        <div class="card-block">
+                            <a href="#" class="btn btn-outline-start" title="Get Started">
+								Get Started
+							</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+
+</body>
+
+</html>
