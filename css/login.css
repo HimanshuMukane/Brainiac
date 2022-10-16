@@ -10,6 +10,16 @@
     justify-content: space-between;
 }
 
+body .inputs {
+    position: relative;
+  }
+  body .inputs #toggler {
+    position: absolute;
+    right: 20px;
+    top: 75%;
+    cursor: pointer;
+  }
+
 @media (max-width: 980px) {
     .box-form {
         flex-flow: wrap;
