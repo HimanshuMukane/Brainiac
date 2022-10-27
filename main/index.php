@@ -28,7 +28,7 @@
             <div class="inputs">
                 <input type="text" placeholder="Email" name="emailtxt" required>
                 <br>
-                <input type="password" placeholder="password" name="passtxt" required>
+                <input type="password" id="fakePassword" placeholder="password" name="passtxt" required><span><i id="toggler"class="far fa-eye"></i></span>
             </div>
 
             <br><br>
@@ -45,7 +45,23 @@
             <input type="submit" value="Login">
         </form>
 
-    </div>
+    </div><script src='https://kit.fontawesome.com/361b32335c.js'></script>
+      <script id="rendered-js" >
+var password = document.getElementById('fakePassword');
+var toggler = document.getElementById('toggler');
+
+showHidePassword = () => {
+  if (password.type == 'password') {
+    password.setAttribute('type', 'text');
+    toggler.classList.add('fa-eye-slash');
+  } else {
+    toggler.classList.remove('fa-eye-slash');
+    password.setAttribute('type', 'password');
+  }
+};
+
+toggler.addEventListener('click', showHidePassword);
+    </script>
 </body>
 
 </html>
