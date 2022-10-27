@@ -1,7 +1,8 @@
 <?php
     $servername = 'localhost';
-    $username = 'root';
+    $email = 'root';
     $password = '';
-    $db = 'brainiac';
-    $con = mysqli_connect($servername,$username,$password,$db);
+    $db = 'project';
+    $con = mysqli_connect($servername,$email,$password,$db);
+    
 ?>

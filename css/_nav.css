@@ -403,6 +403,7 @@ body.dark .home .text {
 
 .sidebar.close {
     width: 88px;
+    opacity: 1 !important; 
 }
 
 .hide {

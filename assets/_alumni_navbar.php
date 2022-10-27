@@ -28,7 +28,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname']) && $_SESSION['usertype']
                 <li><a href="index.php">Home</a></li>
                 <li><a href="events.php">Events</a></li>
                 <li><a href="internships">Internships</a></li>
-                <li><a href="logout.php">Log out</a></li>
+                <li><a href="../main/index.php">Log out</a></li>
             </ul>
             <div class="burger">
                 <div class="line line1"></div>
@@ -42,7 +42,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname']) && $_SESSION['usertype']
                 <div class="image-text">
                     <img src="../imgs/logo.jpg" alt="">
                     <div class="text logo-text">
-                        <span class="name">Brainiac</span>
+                        <span class="name">Alumni Association</span>
                         <span class="profession"></span>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname']) && $_SESSION['usertype']
                 </div>
                 <div class="bottom-content">
                     <li class="">
-                        <a href="logout.php">
+                        <a href="../main/index.php">
                             <i class='bx bx-log-out icon'></i>
                             <span class="text nav-text">Logout</span>
                         </a>
@@ -141,7 +141,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname']) && $_SESSION['usertype']
 
 <?php
 } else {
-    header("Location : logout.php");
+    header("Location : ../main/index.php");
     exit();
 }
 ?>

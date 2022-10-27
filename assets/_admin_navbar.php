@@ -23,6 +23,11 @@
     <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
     <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css'>
     <link rel="stylesheet" href="../css/_nav.css">
+    <style>
+        .close {
+            opacity: 1 !important;
+        }
+        </style>
 </head>
 
 <body translate="no">
@@ -32,7 +37,7 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="events.php">Events</a></li>
             <li><a href="internships">Internships</a></li>
-            <li><a href="logout.php">Log out</a></li>
+            <li><a href="../main/index.php">Log out</a></li>
         </ul>
         <div class="burger">
             <div class="line line1"></div>
@@ -46,7 +51,7 @@
             <div class="image-text">
                 <img src="../imgs/logo.jpg" alt="">
                 <div class="text logo-text">
-                    <span class="name">Brainiac</span>
+                    <span class="name">Alumni Association</span>
                     <span class="profession"></span>
                 </div>
             </div>
@@ -73,27 +78,27 @@
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Groups</span>
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Profile</span>
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Courses</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <i class='bx bx-cog icon'></i>
                             <span class="text nav-text">Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-info-circle icon'></i>
+                            <span class="text nav-text">Know More</span>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="bottom-content">
                 <li class="">
-                    <a href="logout.php">
+                    <a href="../main/index.php">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -145,7 +150,7 @@
 <?php
 }
 else{
-    header("Location : logout.php");
+    header("Location : ../main/index.php");
     exit();
 }
 ?>

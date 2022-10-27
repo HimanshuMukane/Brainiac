@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+    <title>Text to Speech with Responsive</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='//treehouse-code-samples.s3.amazonaws.com/poly/css/application.css'>
+  
+<style>
+textarea {
+  resize: vertical;
+}
+</style>
+</head>
+
+<body translate="no" >
+  <div class="grid">
+  <div class="grid__col--12">
+    <textarea class="form__input" id="text">The voice consists of sound made by a human being using the vocal folds for talking, reading, singing, laughing, crying, screaming etc. The human voice is specifically a part of human sound production in which the vocal folds (vocal cords) are the primary sound source.</textarea>
+    <select id="voiceselection">
+      <option value="UK English Female">UK English Female</option>
+      <option value="UK English Male">UK English Male</option>
+      <option value="US English Female">US English Female</option>
+      <option value="US English Male">US English Male</option>
+    </select>
+    <p></p>    
+    <p>
+      <button class="btn--default" id="playbutton">Play</button>
+      <button class="btn--error" id="stopbutton">Stop</button>
+    </p>
+  </div>
+</div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script src='//code.responsivevoice.org/responsivevoice.js'></script>
+      <script id="rendered-js" >
+playbutton.onclick = function () {
+  responsiveVoice.cancel();
+  responsiveVoice.speak(document.getElementById('text').value, document.getElementById('voiceselection').value);
+};
+stopbutton.onclick = function () {
+  responsiveVoice.cancel();
+};
+    </script>
+</body>
+
+</html>
+ 

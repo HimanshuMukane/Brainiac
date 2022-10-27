@@ -13,22 +13,27 @@ $pass = validate($_POST['passtxt']);
 $encpass = md5($pass);
 $sql = "SELECT * FROM `user_details` WHERE `email`= '$email' AND `password` = '$encpass';";
 $result = mysqli_query($con, $sql);
-if (mysqli_num_rows($result) === 1) {
+			$count = mysqli_num_rows($result);
+			if($count==1) {
     $row = mysqli_fetch_assoc($result);
     if ($row['email'] === $email && $row['password'] === md5($pass)) {
         $_SESSION['id'] = $row['srno'];
         $_SESSION['fname'] = $row['fname'];
-        $_SESSION['lname'] = $row['lname'];
+				$_SESSION["UserName"]=$_POST['id'];
+                $_SESSION['lname'] = $row['lname'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['usertype'] = $row['user'];
-        if ($row['user'] === 'student') {
-            header("Location: ../main/student.php");
+        if ($row['user'] === 'user') {
+            header("Location: ../user/index.php");
             exit();
-        } else if ($row['user'] === 'alumni') {
-            header("Location: ../main/alumni.php");
+        } else if ($row['user'] === 'paiduser') {
+            header("Location: ../paiduser/index.php");
             exit();
         } else if ($row['user'] === 'admin') {
-            header("Location: ../main/admin.php");
+            header("Location: ../admin/index.php");
+            exit();
+        } else if ($row['user'] === 'expert') {
+            header("Location: ../expert/index.php");
             exit();
         }
     }

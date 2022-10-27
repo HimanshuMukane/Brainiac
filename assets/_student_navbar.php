@@ -31,7 +31,7 @@
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
             <li><a href="events.php">About us</a></li>
-            <li style="background-color: #2F65B9; color:#fff; padding: 5px 20px;"><a href="logout.php">GO PRO</a></li>
+            <li style="background-color: #2F65B9; color:#fff; padding: 5px 20px;"><a href="../main/index.php">GO PRO</a></li>
         </ul>
         <div class="burger">
             <div class="line line1"></div>
@@ -85,7 +85,7 @@
             </div>
             <div class="bottom-content">
                 <li class="">
-                    <a href="logout.php">
+                    <a href="../main/index.php">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -137,7 +137,7 @@
 <?php
 }
 else{
-    header("Location : logout.php");
+    header("Location : ../main/index.php");
     exit();
 }
 ?>

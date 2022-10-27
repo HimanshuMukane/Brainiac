@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/login.css">
 </head>
 
-<body translate="no">
+<body translate="no"> 
     <div class="box-form">
         <div class="left">
             <div class="overlay">
@@ -34,10 +34,6 @@
             <br><br>
 
             <div class="remember-me--forget-password">
-                <label>
-                    <input type="checkbox" name="item" checked />
-                    <span class="text-checkbox">Remember me</span>
-                </label>
                 <a href="#">forget password?</a>
             </div>
 

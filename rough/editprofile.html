@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Responsive User Profile Panel</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+
+    <style>
+        /*LESS Vars*/
+        /*Styles for user profile panel*/
+        
+        .user {
+            position: relative;
+            transition: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .user-avatar {
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .user-avatar-edit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: rgba(0, 0, 0, 0.54) !important;
+            opacity: 0;
+            transition: opacity 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .user-avatar-edit md-icon {
+            color: rgba(255, 255, 255, 0.87);
+        }
+        
+        .user-avatar:hover {
+            transition: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .user-avatar-edit:hover,
+        .user-avatar:hover+.user-avatar-edit {
+            opacity: 1;
+        }
+        
+        .user-name {
+            font-size: 24px;
+        }
+        
+        .user-title {
+            color: rgba(0, 0, 0, 0.38);
+            font-weight: 500;
+            margin-top: 0;
+        }
+        
+        .user-input-container {
+            box-sizing: border-box;
+            width: 100%;
+        }
+        
+        .user-name,
+        .user-title {
+            background-image: none !important;
+        }
+        
+        .user-name.md-input[disabled],
+        .user-title.md-input[disabled] {
+            color: rgba(0, 0, 0, 0.87);
+        }
+        
+        @media (max-width: 599px) {
+            .user {
+                padding-right: 0;
+                margin-bottom: 16px;
+            }
+            .user-avatar {
+                width: 120px;
+                height: 120px;
+                margin-right: 16px;
+            }
+            .user-avatar-edit {
+                top: 36px;
+                left: 30px;
+            }
+            .md-toolbar-tools>md-menu {
+                padding: 0;
+            }
+        }
+        
+        @media (max-width: 959px) and (min-width: 600px) {
+            .user {
+                padding-right: 24px;
+            }
+            .user-avatar {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 16px;
+            }
+            .user-avatar-edit {
+                top: 76px;
+                left: 70px;
+            }
+            .user-input-container {
+                padding-left: 8px;
+                width: 200px;
+            }
+        }
+        
+        @media (min-width: 960px) {
+            .user {
+                padding-right: 24px;
+            }
+            .user-avatar {
+                width: 260px;
+                height: 260px;
+            }
+            .user-avatar-edit {
+                top: 106px;
+                left: 100px;
+            }
+            .user-input-container {
+                width: 250px;
+                text-overflow: ellipsis;
+                padding-left: 24px;
+            }
+        }
+        
+        body {
+            background: #f2f2f2;
+            padding: 16px;
+        }
+    </style>
+
+</head>
+
+<body translate="no">
+    <div ng-app="userProfile" ng-controller="Ctrl">
+        <md-card>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span>Edit Profile</span>
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-if="viewMode" ng-click="switchMode()">
+                        <md-tooltip>
+                            Edit Profile
+                        </md-tooltip>
+                        <md-icon>mode_edit</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-if="!viewMode" ng-click="switchMode(); saveChanges()">
+                        <md-tooltip>
+                            Save Changes
+                        </md-tooltip>
+                        <md-icon>save</md-icon>
+                    </md-button>
+
+                </div>
+            </md-toolbar>
+            <md-card-content layout-sm="column" layout-gt-sm="row">
+                <div class="user" layout-sm layout-gt-sm="column">
+                    <img src="https://lh3.googleusercontent.com/-W2XryVdi-lA/U6tSAh3SsbI/AAAAAAAAFGY/ZHJiUEcR_Zs/w480-h480/avatar%2Bmaterial%2Bdesign.png" alt="user avatar" class="user-avatar" />
+                    <md-button class="md-icon-button user-avatar-edit" ng-click="browserAvatar()">
+                        <md-icon>photo_camera</md-icon>
+                    </md-button>
+                    <form name="userBasicInfoForm" layout="column" layout-align="start" layout-align-sm="center start" flex>
+                        <md-input-container class="user-input-container">
+                            <label>Name</label>
+                            <textarea name="email" required class="user-name" ng-model="user.name" ng-disabled="viewMode" flex></textarea>
+                            <div ng-messages="userBasicInfoForm.email.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="user-input-container">
+                            <label>Bio</label>
+                            <input name="userTitle" required class="user-title" ng-model="user.title" ng-disabled="viewMode"></input>
+                            <div ng-messages="userBasicInfoForm.userTitle.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </form>
+                </div>
+                <form name="userDetailsForm" flex>
+                    <div layout="column" layout-gt-sm="row">
+                        <md-input-container flex>
+                            <label>Password</label>
+                            <input required name="userDepartment" ng-model="user.department" ng-disabled="viewMode"></input>
+                            <div ng-messages="userDetailsForm.userDepartment.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                       
+                    </div>
+                    <div layout="column" layout-gt-sm="row">
+                        <md-input-container flex>
+                            <label>Confirm Password </label>
+                            <input name="userCompany" required ng-model="user.company" ng-disabled="viewMode"></input>
+                            <div ng-messages="userDetailsForm.userCompany.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    
+                    </div>
+                    <div layout="column" layout-gt-sm="row">
+                        <md-input-container flex>
+                            <label>Phone Number</label>
+                            <input type="tel" name="userWorkPhone" required ng-model="user.workPhone" ng-disabled="viewMode"></input>
+                            <div ng-messages="userDetailsForm.userWorkPhone.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>Age</label>
+                            <input type="number" max="100"  min="1" ng-model="user.age" ng-disabled="viewMode"></input>
+                        </md-input-container>
+                    </div>
+                 </md-input-container>
+                <md-input-container flex>
+                    <label>Country</label>
+                    <textarea name="userLocation" required ng-model="user.country" ng-disabled="viewMode"></textarea>
+                    <div ng-messages="userDetailsForm.userLocation.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                    <md-input-container>
+                        <label>Email</label>
+                        <input type="email" name="userOtherEmail" ng-model="user.otherEmail" ng-disabled="viewMode"></input>
+                        <div ng-messages="userDetailsForm.userOtherEmail.$error">
+                            <div ng-message="email">Email address is invalid</div>
+                        </div>
+                    </md-input-container>
+                </form>
+            </md-card-content>
+        </md-card>
+    </div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-aria.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-messages.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js'></script>
+    <script id="rendered-js">
+        angular.module('userProfile', ['ngMaterial', 'ngMessages']).
+        controller('Ctrl', function($scope) {
+            $scope.viewMode = true;
+
+            // Switch between view mode and edit mode
+            $scope.switchMode = function() {
+                return $scope.viewMode = !$scope.viewMode;
+            };
+
+            // Save the changes
+            $scope.saveChanges = function() {
+                /*Validate the input
+                Save the changes*/
+            };
+
+            // User data
+            $scope.user = {
+                name: 'Eashwari Nagarkar',
+                title: 'Write your bio',
+                department: '******',
+                country: 'India',
+                company: '*****',
+                workPhone: '+91 12345698',
+                age: '21',
+                alias: 'adam.luxor@companyname.com',
+                otherEmail: 'adaml@someothercompany.com'
+            };
+
+        });
+    </script>
+
+
+
+</body>
+
+</html>
