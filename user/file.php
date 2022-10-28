@@ -26,8 +26,9 @@
 </head>
 <body>
 	<?php
-		$con2=mysqli_connect("localhost","root","","project");
-		if(!$con2)
+		include "_student_navbar.php";
+		$con=mysqli_connect("localhost","root","","project");
+		if(!$con)
 			echo "Connection failed".mysqli_connect_error();
 		else{}
 		session_start();
@@ -35,13 +36,21 @@
 		{
 			$UserName=$_SESSION["UserName"];
 		}
-		include "_student_navbar.php";
 		$sql	?>
 
 
+	<header id="head" class="secondary">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<h1>Manage Profile</h1>
+				</div>
+			</div>
+		</div>
+	</header>
 	<?php
 		$sql = "SELECT fname,lname,Gender,email,UserName,Password FROM user_details WHERE User='User'";
-		$result = mysqli_query($con2,$sql);
+		$result = mysqli_query($con,$sql);
 		while($row = mysqli_fetch_array($result))
 		{
 			$fname = $row["fname"];

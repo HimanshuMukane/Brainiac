@@ -1,13 +1,20 @@
+
 <?php
-    session_start();
+    $con=mysqli_connect("localhost","root","","project");
+   
     if(isset($_SESSION['id']) && isset($_SESSION['fname']) && $_SESSION['usertype']==='student'){
         $fullname = $_SESSION['fname'] . " " . $_SESSION['lname'];
-        include "../assets/_connection.php";
         $srno = $_SESSION['id'];
-        $sql = "SELECT * FROM `user_details` WHERE `srno`= '$srno';";
-        $result = mysqli_query($con, $sql);
-        $row = mysqli_fetch_assoc($result);
+    }
+    $sql	?>
+
+<?php
+		$sql = "SELECT * FROM user_details WHERE User='User'";
+    $result = mysqli_query($con,$sql);
+    while($row = mysqli_fetch_array($result))
+    {
         $imgurl = $row['profilepic_url'];
+    }
 ?>
 <!DOCTYPE html>
 
@@ -133,11 +140,3 @@
 </body>
 
 </html>
-
-<?php
-}
-else{
-    header("Location : ../main/index.php");
-    exit();
-}
-?>
