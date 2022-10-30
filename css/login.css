@@ -32,8 +32,9 @@ body .inputs {
 .box-form .left {
     color: #FFFFFF;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../imgs/loginLeft.png");
+    background-image: url("../assets/images/leftimg.png");
     overflow: hidden;
     display: flex;
     align-items: flex-end;

@@ -1,90 +1,152 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="eLearning is a modern and fully responsive Template by WebThemez.">
-	<meta name="author" content="webThemez.com">
-	<title>eLearning - Free Educational Responsive Web Template </title>
-	<link rel="favicon" href="assets/images/favicon.png">
-	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-	<!-- Custom styles for our template -->
-	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="assets/css/da-slider.css" />
-	<link rel="stylesheet" href="assets/css/style.css">
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="assets/js/html5shiv.js"></script>
-	<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
-<style>
-th, td {
-    padding:5px;   
+
+  <meta charset="UTF-8">
+  <title> Form</title>
+
+  <style>
+    
+:root {
+    --body-color: #f6f5f5;
+    --sidebar-color: #fff;
+    --primary-color: #2F65B9;
+    --primary-color-light: #f6f5ff;
+    --toggle-color: #ddd;
+    --text-color: #0c0c0c;
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
 }
-</style>
+
+    body {
+      background-color:  var(--body-color);
+      align-items: center;
+      margin: 0px;
+    }
+
+    .button {
+      border: 0;
+      /* display: block; */
+      width: 130px;
+      height: 40px;
+      margin: 0 auto 30px;
+      border-radius: 200px;
+    }
+
+    .button2 {
+      background-color: #1965D2;
+      color: white;
+      align-items: center;
+    }
+
+    .shift {
+      /* text-align: center; */
+      padding-top: 5px;
+      padding-right: 3px;
+      padding-bottom: 5px;
+      padding-left: 280px;
+    }
+
+    .form {
+      width: 500px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 150px 300px;
+      grid-row-gap: 20px;
+    }
+
+    input {
+      height: 30px;
+      box-shadow: none;
+      border-radius: 100px;
+      padding-left: 15px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 300px;
+      box-shadow: none;
+      border-radius: 10px;
+      padding-left: 15px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: #407DD9;
+      align-items: center;
+    } 
+.nav-links a {
+    color: #fff;
+    font-size: 1rem !important;
+    text-decoration: none;
+}
+  </style>
 </head>
-<body>
-	<?php
-		include "nav.php";
-		$con=mysqli_connect("localhost","root","","project");
-		if(!$con)
-			echo "Connection failed".mysqli_connect_error();
-		else{}
-		session_start();
-		if(isset($_SESSION["UserName"]))
-		{
-			$UserName=$_SESSION["UserName"];
-		}
-		$sql = "SELECT srno FROM user_details WHERE user='expert'";
-		$result = mysqli_query($con,$sql);
-		while($row = mysqli_fetch_array($result))
-		{
-			$id = $row[0];
-		}
-	?>
-	<header id="head" class="secondary">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h1>Suggestion</h1>
-                </div>
-            </div>
-        </div>
-    </header>
-	<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-	<form method="POST" action="">
-		<table border=0 align="center">
-			<th>
-				<h3 class="section-title">Your Suggestion</h3>
-			</th>
-			<tr>
-				<td><input type="text" class="form-control" name="id" placeholder="Full Name"></td>
-			</tr>
-			<tr>
-				<td><input type="email" class="form-control" name="email" placeholder="Email Address"></td>
-			</tr>
-			<tr>
-				<td><input type="text" class="form-control" name="sub" placeholder="Subject"></td>
-			</tr>
-			<tr>
-				<td><textarea rows="10" cols="100" class="form-control" 
-			placeholder="Suggestion" name="message" required
-			data-validation-required-message="Please enter your suggestion" minlength="5" 
-			data-validation-minlength-message="Min 5 characters" 
-			maxlength="999" style="resize:none"></textarea></td>
-			</tr>
-		</table>
-		<button type="submit" class="btn btn-primary pull-right" name="btnsubmit">Submit</button>
-	</form>
-	
-	</div>
-	</div>
-	</div>
-	<br>
-	<?php
+
+<body translate="no">
+  <?php
+    session_start();
+    include "_expert_navbar.php";
+    $con=mysqli_connect("localhost","root","","project");
+    if(!$con)
+      echo "Connection failed".mysqli_connect_error();
+    else{}
+    if(isset($_SESSION["UserName"]))
+    {
+      $UserName=$_SESSION["UserName"];
+    }
+    $sql	?>
+  <div class="shift">
+
+    <form action=" " method="post">
+
+      <!-- Form Name -->
+      <h1 style="text-align:center"><b>Suggestions</b></h1><br>
+      <div class="form">
+        <!-- Text input-->
+        <label>Full Name</label>
+        <input name="user_name" placeholder="Enter Full Name" type="text">
+
+        <!-- Text input-->
+        <label>E-Mail</label>
+        <input name="email" placeholder="E-Mail Address" type="text">
+        <!-- Text input-->
+
+        <label>Subject</label>
+        <input name="user_name" placeholder="Subject" type="text">
+
+        <!-- Text input-->
+        <label>Suggestion</label>
+        <textarea name="email" placeholder="Suggestions" type="text"></textarea>
+      </div>
+
+      <!-- Text input-->
+      <!--     
+<div>
+  <label >Contact No.</label>  
+    <div>
+    <div>
+  <input name="contact_no" placeholder="(639)" type="text">
+    </div>
+  </div>
+</div>
+-->
+
+      <!-- Button -->
+<br><div style="text-align: center;">
+      <button class="button button2" name="btnsubmit">SUBMIT</button>
+  </div>
+</div>
+
+  </form>
+  </div>
+  </div><!-- /.container -->
+
+  </div>
+  <?php
 	if(!empty($_POST['id'])&&!empty($_POST['message']))
 	{
 		if(isset($_POST['btnsubmit']))
@@ -108,8 +170,6 @@ th, td {
 		}
 	}
 	?>
-	<?php
-		include "footer.php";
-	?>
 </body>
+
 </html>

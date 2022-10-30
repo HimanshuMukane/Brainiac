@@ -1,107 +1,109 @@
-
-
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
 
   <meta charset="UTF-8">
   <title> Form</title>
-  
-<style>
-body 
-{
-background-color: white;
-align-items: center;
-margin: 20px;
-}
-.gender_form {
-  margin-left: -80px;
-}
 
-.gender input[type='radio'] {
-  display: none;
-  color: #1965D2;
-  background-color: #1965D2;
-}
-.gender input[type=radio]:checked + label:after {
-  border-radius: 11px;
-  content: " ";
-  display: block;
-  color: #1965D2;
-  background: #1965D2;
-}
-button{
-  border: 0;
-  padding: 1%;
-  border-radius: 10px;
-  margin-left: 300px;
-}
-.button2 
-{
-  background-color: #1965D2; 
-  color: white;
-  align-items: center;
-} 
-.button3 
-{
-  background-color: #1965D2; 
-  color: white;
-} 
-.form{
-  display: grid;
-  grid-template-columns: 150px 300px;
-  grid-row-gap: 20px;
-}
+  <style>
+    body {
+      background-color: white;
+      align-items: center;
+      margin: 20px;
+    }
 
+    .gender_form {
+      margin-left: -80px;
+    }
 
-div {
-  
-  padding-top: 5px;
-  padding-right: 3px;
-  padding-bottom: 5px;
-  padding-left: 80px;
- 
-}
-input{
-  border-width: 0;
-  border-bottom-width: 2px;
-  height: 30px;
-  box-shadow: none;
-  box-sizing: border-box;
-}
-h1 
-{
-  color: #407DD9;
-  align-items: center;}
+    .gender input[type='radio'] {
+      display: none;
+      color: #1965D2;
+      background-color: #1965D2;
+    }
 
-</style>
+    .gender input[type=radio]:checked+label:after {
+      border-radius: 11px;
+      content: " ";
+      display: block;
+      color: #1965D2;
+      background: #1965D2;
+    }
+
+    button {
+      border: 0;
+      /* display: block; */
+      width: 130px;
+      height: 40px;
+      margin: 0 auto 30px;
+      border-radius: 200px;
+    }
+
+    .button2 {
+      background-color: #1965D2;
+      color: white;
+      align-items: center;
+    }
+
+    .button3 {
+      background-color: #1965D2;
+      color: white;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: 150px 300px;
+      grid-row-gap: 20px;
+    }
+
+    div {
+
+      padding-top: 5px;
+      padding-right: 3px;
+      padding-bottom: 5px;
+      padding-left: 80px;
+
+    }
+
+    input {
+      height: 30px;
+      box-shadow: none;
+      border-radius: 100px;
+      padding-left: 15px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: #407DD9;
+      align-items: center;
+    }
+  </style>
 </head>
 
-<body translate="no" >
-  <div >
+<body translate="no">
+  <div>
 
     <form action=" " method="post">
-<fieldset>
 
-<!-- Form Name -->
-<h1 style="text-align:center"><b>Registration Form</b></h1><br>
-<div class="form"> 
-<!-- Text input-->
+      <!-- Form Name -->
+      <h1 style="text-align:center"><b>Registration Form</b></h1><br>
+      <div class="form">
+        <!-- Text input-->
 
-  <label >First Name</label>  
-  
-  <input  name="first_name" placeholder="First Name"  type="text">
-    
+        <label>First Name</label>
+
+        <input name="first_name" placeholder="First Name" type="text">
 
 
-<!-- Text input-->
-  <label>Middle Name</label> 
-  <input name="middle_name" placeholder="Middle Name"  type="text">
-  <label  >Last Name</label> 
-  <input name="last_name" placeholder="Last Name"  type="text">
 
-<!-- <div> 
+        <!-- Text input-->
+        <label>Middle Name</label>
+        <input name="middle_name" placeholder="Middle Name" type="text">
+        <label>Last Name</label>
+        <input name="last_name" placeholder="Last Name" type="text">
+
+        <!-- <div> 
   <label >Department / Office</label>
     <div>
     <div>
@@ -119,45 +121,45 @@ h1
     </select>
   </div>
 </div>
-</div>--> 
-  
-<!-- Text input-->
-</div>
-<div class="gender_form form">
-  <div class="gender">
-  <label >Gender</label>
-</div>
-<div> 
-  
-  <input  name="gender" class="Gender"   type="radio">
-  <label for="Male">Male</label><br>
-  <input  name="gender" class="Gender"  type="radio">
-  <label for="Female">Female</label><br>
-  <input name ="gender" class="Gender"  type="radio">
-  <label for="Other">Other</label>
-</div>
-</div>
-<div class="form">
-  <label >Username</label>  
-  <input  name="user_name" placeholder="Username"  type="text">
+</div>-->
 
-<!-- Text input-->
-  <label >E-Mail</label>  
-  <input name="email" placeholder="E-Mail Address"  type="text">
-<!-- Text input-->
+        <!-- Text input-->
+      </div>
+      <div class="gender_form form">
+        <div class="gender">
+          <label>Gender</label>
+        </div>
+        <div>
 
-  <label  >Password</label>
-  <input name="user_password" placeholder="Password"  type="password">
+          <input name="gender" class="Gender" type="radio">
+          <label for="Male">Male</label><br>
+          <input name="gender" class="Gender" type="radio">
+          <label for="Female">Female</label><br>
+          <input name="gender" class="Gender" type="radio">
+          <label for="Other">Other</label>
+        </div>
+      </div>
+      <div class="form">
+        <label>Username</label>
+        <input name="user_name" placeholder="Username" type="text">
 
-<!-- Text input-->
+        <!-- Text input-->
+        <label>E-Mail</label>
+        <input name="email" placeholder="E-Mail Address" type="text">
+        <!-- Text input-->
 
-  <label  >Confirm Password</label> 
-  <input name="confirm_password" placeholder="Confirm Password"  type="password">
+        <label>Password</label>
+        <input name="user_password" placeholder="Password" type="password">
 
-</div>
+        <!-- Text input-->
 
-<!-- Text input-->
-<!--     
+        <label>Confirm Password</label>
+        <input name="confirm_password" placeholder="Confirm Password" type="password">
+
+      </div>
+
+      <!-- Text input-->
+      <!--     
 <div>
   <label >Contact No.</label>  
     <div>
@@ -166,21 +168,19 @@ h1
     </div>
   </div>
 </div>
--->  
+-->
 
-<!-- Button -->
+      <!-- Button -->
 
-<button class="button button2">REGISTER</button>
-<button class="button button3">RESET</button>
-</div>
+      <button class="button button2">REGISTER</button>
+      <button class="button button3">RESET</button>
+  </div>
 
-</fieldset>
-</form>
-</div>
-    </div><!-- /.container -->
-   
-</div>
+  </form>
+  </div>
+  </div><!-- /.container -->
+
+  </div>
 </body>
 
 </html>
- 

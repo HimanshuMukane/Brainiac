@@ -10,7 +10,7 @@
 }
 
 :root {
-    --body-color: #e7e7e7;
+    --body-color: #f6f5f5;
     --sidebar-color: #fff;
     --primary-color: #2F65B9;
     --primary-color-light: #f6f5ff;
@@ -320,7 +320,7 @@ body.dark .home .text {
     justify-content: space-between;
     align-items: center;
     color: var(--text-color);
-    background: var(--sidebar-color);
+    background-image: url("../assets/images/header.png") !important;
 }
 
 .logo {
@@ -334,6 +334,14 @@ body.dark .home .text {
     display: flex;
     width: 40%;
     justify-content: space-around;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: #fff;
+    /* font-size: 1rem; */
+    text-decoration: none;
 }
 
 .burger {

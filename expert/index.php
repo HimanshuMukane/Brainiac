@@ -1,47 +1,36 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>eLearning - Free Educational Responsive Web Template </title>
-	<link rel="favicon" href="assets/images/favicon.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="favicon" href="../assets/images/favicon.png">
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
-	<!-- Custom styles for our template -->
+	
 	<link rel="stylesheet" href="../assets/css/bootstrap-theme.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="../assets/css/da-slider.css" />
 	<link rel="stylesheet" href="../assets/css/style.css">
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="assets/js/html5shiv.js"></script>
-	<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
+    <title>Expert</title>
 </head>
 <body>
-	<?php
-		include "nav.php";
-		$con=mysqli_connect("localhost","root","","project");
-		if(!$con)
-			echo "Connection failed".mysqli_connect_error();
-		else{}
-		session_start();
-		if(isset($_SESSION["UserName"]))
-		{
-			$UserName=$_SESSION["UserName"];
-		}
-		$sql	?>
-	<header id="head" class="secondary">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-8">
-					<h1>Welcome Expert</h1>
-				</div>
-			</div>
-		</div>
-	</header>
-	<br>
-	<div id="courses">
-		<section class="container">
-			<div class="row">
+<?php
+  session_start();
+  include "_expert_navbar.php";
+  $con=mysqli_connect("localhost","root","","project");
+  if(!$con)
+    echo "Connection failed".mysqli_connect_error();
+  else{}
+  if(isset($_SESSION["UserName"]))
+  {
+    $UserName=$_SESSION["UserName"];
+  }
+  $sql	?>
+    <div id="courses">
+		<section class="container"> 
+		<div class="row">
 				<div class="col-md-4">
 					<div class="featured-box">
 						<a href="Answer.php">
@@ -78,8 +67,12 @@
 			</div>
 		</section>
 	</div>
-	<?php
-		include "footer.php";
-	?>
+	</div>
+	<div id="courses">
+		
+		</div>
+		<div id="courses">
+		
+		</div>
 </body>
 </html>

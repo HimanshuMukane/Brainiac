@@ -1,44 +1,111 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-	<title>eLearning - Free Educational Responsive Web Template </title>
-	<link rel="favicon" href="../assets/images/favicon.png">
-	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
-	<!-- Custom styles for our template -->
-	<link rel="stylesheet" href="../assets/css/bootstrap-theme.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="../assets/css/da-slider.css" />
-	<link rel="stylesheet" href="../assets/css/style.css">
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="assets/js/html5shiv.js"></script>
-	<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
-	<style>
-	th, td {
-		padding:5px;   
-	}
-	</style>
+
+  <meta charset="UTF-8">
+  <title>Addsub</title>
+
+  <style>
+    
+:root { 
+    --body-color: #f6f5f5;
+    --sidebar-color: #fff;
+    --primary-color: #2F65B9;
+    --primary-color-light: #f6f5ff;
+    --toggle-color: #ddd;
+    --text-color: #0c0c0c;
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+    body {
+      background-color:  var(--body-color);
+      align-items: center;
+      margin: 0px;
+    }
+
+    .button {
+      border: 0;
+      /* display: block; */
+      width: 130px;
+      height: 40px;
+      margin: 0 auto 30px;
+      border-radius: 200px;
+    }
+
+    .button2 {
+      background-color: #1965D2;
+      color: white;
+      align-items: center;
+    }
+
+    .button3 {
+      background-color: #1965D2;
+      color: white;
+    }
+
+    .shift {
+      /* text-align: center; */
+      padding-top: 5px;
+      padding-right: 3px;
+      padding-bottom: 5px;
+      padding-left: 280px;
+    }
+
+    .form {
+      width: 600px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 150px 300px;
+      grid-row-gap: 20px;
+    }
+
+    input {
+      height: 30px;
+      box-shadow: none;
+      border-radius: 10px;
+      padding-left: 15px;
+      box-sizing: border-box;
+    }
+    
+    textarea {
+      height: 300px;
+      box-shadow: none;
+      border-radius: 10px;
+      padding-left: 15px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: #407DD9;
+      align-items: center;
+    } 
+.nav-links a {
+    color: #fff;
+    font-size: 1rem !important;
+    text-decoration: none;
+}
+  </style>
 </head>
-<body>
-	<?php
-		include "nav.php";
-		$con=mysqli_connect("localhost","root","","project");
-		if(!$con)
-			echo "Connection failed".mysqli_connect_error();
-		else{}
-	?>
-	<header id="head" class="secondary">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h1>Add Chapter</h1>
-                </div>
-            </div>
-        </div>
-    </header>
-	<br>
+
+<body translate="no">
+  <?php
+    session_start();
+    include "_admin_navbar.php";
+    $con=mysqli_connect("localhost","root","","project");
+    if(!$con)
+      echo "Connection failed".mysqli_connect_error();
+    else{}
+    if(isset($_SESSION["UserName"]))
+    {
+      $UserName=$_SESSION["UserName"];
+    }
+    $sql	?>
+  <div class="shift">
+
 	<?php
 		$sql = "SELECT Title FROM subject";
 		$result = mysqli_query($con,$sql);
@@ -51,11 +118,14 @@
 			echo "failed";
 		}*/
 	?>
-	<form method="POST" action="#">
-		<table border=0 align="center">
-			<tr>
-				<td><label>Select Subject :</label></td>
-				<td>
+    <form action=" " method="post">
+
+      <!-- Form Name -->
+      <h1 style="text-align:center"><b>Add Chapter</b></h1><br>
+      <div class="form">
+        <!-- Text input-->
+
+        <label>Select Subject :</label>
 				<select name="chapter" class="form-control">
 				<?php
 				while($row = mysqli_fetch_array($result))
@@ -63,29 +133,42 @@
 					echo '<option selected>'.$row[0].'</option>';
 				}
 				?>
-				</td>
-			</tr>
-			<tr>
-				<td><label>Enter Chapter Title :</label></td>
-				<td><input type="text" class="form-control" name="title" placeholder="Subject Title"></td>
-			</tr>
-			<tr>
-				<td><label>Enter Info :</label></td>
-				<td><textarea rows="10" cols="50" class="form-control" 
-			placeholder="Infromation" id="message" name="info" required
-			data-validation-required-message="Please enter your message" minlength="5" 
-			data-validation-minlength-message="Min 5 characters" style="resize:none;margin-top:10px"></textarea></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><button class="btn btn-block" name="submit">Create Chapter</button></td>
-			</tr>
-			
-			<tr>
-				<td colspan="2" align="center"><button class="btn btn-block">Reset</button></td>
-			</tr>
-		</table>
-	</form>
-	<?php
+        </select>
+
+        <!-- Text input-->
+        <label>Chapter</label>
+        <input name="subject_info" placeholder="Chapter Title" type="text">
+        <label>Chapter Info</label>
+        <textarea name="detailed_subjectinfo" placeholder="Information" type="text"></textarea>
+    
+        <!-- Text input-->
+      </div>
+      
+      <!-- Text input-->
+      <!--     
+<div>
+  <label >Contact No.</label>  
+    <div>
+    <div>
+  <input name="contact_no" placeholder="(639)" type="text">
+    </div>
+  </div>
+</div>
+-->
+
+      <!-- Button -->
+<br><div style="text-align: center;">
+      <button class="button button2" name="submit">CREATE</button>
+      <button class="button button3">RESET</button>
+  </div>
+</div>
+
+  </form>
+  </div>
+  </div><!-- /.container -->
+
+  </div>
+  <?php
 		if(isset($_POST['submit']))
 		{
 			$subject = $_POST['chapter'];
@@ -104,8 +187,6 @@
 			}
 		}
 	?>
-	<?php
-		include "footer.php";
-	?>
 </body>
+
 </html>

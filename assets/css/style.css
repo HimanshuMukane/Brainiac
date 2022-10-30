@@ -1,5 +1,5 @@
 /*
-Theme: eLearning - Free Educational Responsive Web Template
+Theme: Brainiac
 Description: Free to use for personal and commercial use
 Author: WebThemez.com
 Website: http://webthemez.com

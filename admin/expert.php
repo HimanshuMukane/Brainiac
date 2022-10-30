@@ -1,85 +1,198 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-	<title>eLearning - Free Educational Responsive Web Template </title>
-	<link rel="favicon" href="../assets/images/favicon.png">
-	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
-	<!-- Custom styles for our template -->
-	<link rel="stylesheet" href="../assets/css/bootstrap-theme.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="../assets/css/da-slider.css" />
-	<link rel="stylesheet" href="../assets/css/style.css">
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="assets/js/html5shiv.js"></script>
-	<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
-	<style>
-	th, td {
-		padding:5px;   
-	}
-	</style>
+
+  <meta charset="UTF-8">
+  <title> Form</title>
+
+  <style>
+    
+:root {
+    --body-color: #f6f5f5;
+    --sidebar-color: #fff;
+    --primary-color: #2F65B9;
+    --primary-color-light: #f6f5ff;
+    --toggle-color: #ddd;
+    --text-color: #0c0c0c;
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+    body {
+      background-color:  var(--body-color);
+      align-items: center;
+      margin: 0px;
+    }
+
+    .gender_form {
+      margin-left: -80px;
+    }
+
+    .gender input[type='radio'] {
+      display: none;
+      color: #1965D2;
+      background-color: #1965D2;
+    }
+
+    .gender input[type=radio]:checked+label:after {
+      border-radius: 11px;
+      content: " ";
+      display: block;
+      color: #1965D2;
+      background: #1965D2;
+    }
+
+    .button {
+      border: 0;
+      /* display: block; */
+      width: 130px;
+      height: 40px;
+      margin: 0 auto 30px;
+      border-radius: 200px;
+    }
+
+    .button2 {
+      background-color: #1965D2;
+      color: white;
+      align-items: center;
+    }
+
+    .button3 {
+      background-color: #1965D2;
+      color: white;
+    }
+
+    .shift {
+      /* text-align: center; */
+      padding-top: 5px;
+      padding-right: 3px;
+      padding-bottom: 5px;
+      padding-left: 280px;
+    }
+
+    .form {
+      width: 500px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 150px 300px;
+      grid-row-gap: 20px;
+    }
+
+    input {
+      height: 30px;
+      box-shadow: none;
+      border-radius: 100px;
+      padding-left: 15px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: #407DD9;
+      align-items: center;
+    } 
+.nav-links a {
+    color: #fff;
+    font-size: 1rem !important;
+    text-decoration: none;
+}
+  </style>
 </head>
-<body>
-	<?php
-		include "nav.php";
-		$con=mysqli_connect("localhost","root","","project");
-		if(!$con)
-			echo "Connection failed".mysqli_connect_error();
-		else
-		{}
-	?>
-	<header id="head" class="secondary">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h1>Registration of Expert</h1>
-                </div>
-            </div>
-        </div>
-    </header>
+
+<body translate="no">
+  <?php
+    session_start();
+    include "_admin_navbar.php";
+    $con=mysqli_connect("localhost","root","","project");
+    if(!$con)
+      echo "Connection failed".mysqli_connect_error();
+    else{}
+    if(isset($_SESSION["UserName"]))
+    {
+      $UserName=$_SESSION["UserName"];
+    }
+    $sql	?>
+  <div class="shift">
+
 	<form method="POST" action="#">
-		<table border=0 align="center">
-			<tr>
-				<td><label>Enter Your First Name :</label></td>
-				<td><input type="text" class="form-control" name="fname" placeholder="First Name"></td>
-			</tr>
-			<tr>
-				<td><label>Enter Your Middle Name :</label></td>
-				<td><input type="text" class="form-control" name="mname" placeholder="Middle Name"></td>
-			</tr>
-			<tr>
-				<td><label>Enter Your Last Name :</label></td>
-				<td><input type="text" class="form-control" name="lname" placeholder="Last Name"></td>
-			</tr>
-			<div class="checkbox">
-				<tr>
-					<td><label>Gender :</label></td>
-					<td><input type="radio" name="gender" value="male">Male &nbsp; <input type="radio" name="gender" value="female">Female</td>
-				</tr>
-			</div>
-			<tr>
-				<td><label>Email address :</label></td>
-				<td><input type="email" class="form-control" name="email" placeholder="Email ID"></td>
-			</tr>
-			<tr>
-				<td><label>Enter Your User Name :</label></td>
-				<td><input type="text" class="form-control" name="UserName" placeholder="User Name"></td>
-			</tr>
-			<tr>
-				<td><label>Enter Your Password :</label></td>
-				<td><input type="password" class="form-control" name="pass" placeholder="Password"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><button class="btn btn-block"name="btn">Register</button></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><button class="btn btn-block">Reset</button></td>
-			</tr>
-		</table>
-	</form>
-	<?php
+
+      <!-- Form Name -->
+      <h1 style="text-align:center"><b>Registration of Expert</b></h1><br>
+      <div class="form">
+        <!-- Text input-->
+
+        <label>First Name</label>
+
+        <input name="first_name" placeholder="First Name" type="text">
+
+        <!-- Text input-->
+        <label>Middle Name</label>
+        <input name="middle_name" placeholder="Middle Name" type="text">
+        <label>Last Name</label>
+        <input name="last_name" placeholder="Last Name" type="text">
+
+        <!-- Text input-->
+      </div>
+      <div class="gender_form form">
+        <div class="gender">
+          <label>Gender</label>
+        </div>
+        <div style="text-align: left;">
+
+          <input name="gender" class="Gender" type="radio">
+          <label for="Male">Male</label><br>
+          <input name="gender" class="Gender" type="radio">
+          <label for="Female">Female</label><br>
+          <input name="gender" class="Gender" type="radio">
+          <label for="Other">Other</label><br>
+        </div>
+      </div>
+      <div class="form">
+        <label>Username</label>
+        <input name="user_name" placeholder="Username" type="text">
+
+        <!-- Text input-->
+        <label>E-Mail</label>
+        <input name="email" placeholder="E-Mail Address" type="text">
+        <!-- Text input-->
+
+        <label>Password</label>
+        <input name="user_password" placeholder="Password" type="password">
+
+        <!-- Text input-->
+
+        <label>Confirm Password</label>
+        <input name="confirm_password" placeholder="Confirm Password" type="password">
+
+      </div>
+
+      <!-- Text input-->
+      <!--     
+<div>
+  <label >Contact No.</label>  
+    <div>
+    <div>
+  <input name="contact_no" placeholder="(639)" type="text">
+    </div>
+  </div>
+</div>
+-->
+
+      <!-- Button -->
+<br><div style="text-align: center;">
+      <button class="button button2">REGISTER</button>
+      <button class="button button3">RESET</button>
+  </div>
+</div>
+
+  </form>
+  </div>
+  </div><!-- /.container -->
+
+  </div>
+  <?php
 		if(isset($_POST['btn']))
 		{
 		$fname = $_POST['fname'];
@@ -101,8 +214,6 @@
 		}
 		}
 	?>
-	<?php
-		include "footer.php";
-	?>
 </body>
+
 </html>
