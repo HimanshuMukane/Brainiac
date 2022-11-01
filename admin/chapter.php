@@ -126,7 +126,7 @@
         <!-- Text input-->
 
         <label>Select Subject :</label>
-				<select name="chapter" class="form-control">
+				<select name="subject" class="form-control">
 				<?php
 				while($row = mysqli_fetch_array($result))
 				{
@@ -137,9 +137,9 @@
 
         <!-- Text input-->
         <label>Chapter</label>
-        <input name="subject_info" placeholder="Chapter Title" type="text">
+        <input name="Title" placeholder="Title" type="text">
         <label>Chapter Info</label>
-        <textarea name="detailed_subjectinfo" placeholder="Information" type="text"></textarea>
+        <textarea name="Info" placeholder="Information" type="text"></textarea>
     
         <!-- Text input-->
       </div>
@@ -171,10 +171,9 @@
   <?php
 		if(isset($_POST['submit']))
 		{
-			$subject = $_POST['chapter'];
-			$title = $_POST['title'];
-			$info = $_POST['info'];
-			echo $subject,$title,$info;
+			$subject = $_POST['subject'];
+			$title = $_POST['Title'];
+			$info = $_POST['Info'];
 			$sql = "INSERT INTO chapter(Subject,Title,Info) VALUES('$subject','$title','$info')";
 			$result = mysqli_query($con,$sql);
 			if($result)

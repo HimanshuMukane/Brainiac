@@ -102,7 +102,8 @@
 			$state = $_POST['state'];
 			$email = $_POST['email'];
 			$mobile = $_POST['mobile'];
-			//echo $bookname,$fullname,$address,$city,$pin,$state,$email,$mobile;
+			// echo $bookname,$fullname,$address,$city,$pin,$state,$email,$mobile;
+		$con=mysqli_connect("localhost","root","","project");
 			$sql = "INSERT INTO purchase(Book,Full,Addr,City,PinCode,State,Email,Mobile) VALUES('$bookname','$fullname','$address','$city',$pin,'$state','$email',$mobile)";
 			//echo $sql;
 			$result = mysqli_query($con,$sql);

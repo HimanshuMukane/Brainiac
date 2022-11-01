@@ -34,8 +34,6 @@
         <div class="logo"></div>
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="events.php">Events</a></li>
-            <li><a href="internships">Internships</a></li>
             <li><a href="../main/index.php">Log out</a></li>
         </ul>
         <div class="burger">

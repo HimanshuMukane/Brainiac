@@ -35,7 +35,7 @@
 		{
 			$UserName=$_SESSION["UserName"];
 		}
-		include "_student_navbar.php";
+		include "_user_navbar.php";
 		$sql	?>
 
 

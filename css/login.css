@@ -135,8 +135,8 @@ body .inputs {
     border-radius: 100vw;
     border: 0;
     outline: 0;
-    box-shadow: 0px 4px 20px 0px #49c628a6;
-    background-image: linear-gradient(135deg, #70F570 10%, #49C628 100%);
+    box-shadow: 0px 4px 20px 0px #2832c6a6;
+    background-image: linear-gradient(135deg, #7b70f5 10%, #2845c6 100%);
 }
 
 label {
@@ -150,7 +150,7 @@ label::before {
     position: absolute;
     font-family: FontAwesome;
     background: transparent;
-    border: 3px solid #70F570;
+    border: 3px solid #7b70f5;
     border-radius: 4px;
     color: transparent;
     left: -30px;
@@ -162,11 +162,11 @@ label:hover::before {
     content: " ";
     color: #fff;
     cursor: pointer;
-    background: #70F570;
+    background: #7070f5;
 }
 
 label:hover::before .text-checkbox {
-    background: #70F570;
+    background: #707bf5;
 }
 
 label span.text-checkbox {

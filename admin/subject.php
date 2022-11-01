@@ -116,12 +116,12 @@
         <label>Subject Title</label>
    
 
-        <input name="subject_title" placeholder="Subject Title" type="text">
+        <input name="title" placeholder="Subject Title" type="text">
         <!-- Text input-->
         <label>Subject Info</label>
-        <textarea name="subject_info" placeholder="Subject Info" type="text"></textarea>
+        <textarea name="info" placeholder="Subject Info" type="text"></textarea>
         <label>Detailed Subject Info</label>
-        <textarea name="detailed_subjectinfo" placeholder="Detailed Subject Info" type="text"></textarea>
+        <textarea name="dinfo" placeholder="Detailed Subject Info" type="text"></textarea>
     
         <!-- Text input-->
       </div>

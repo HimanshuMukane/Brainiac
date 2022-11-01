@@ -1,20 +1,12 @@
-
 <?php
-    $con=mysqli_connect("localhost","root","","project");
-   
-    if(isset($_SESSION['id']) && isset($_SESSION['fname']) && $_SESSION['usertype']==='student'){
+    if((isset($_SESSION['id']) && isset($_SESSION['fname']))){
         $fullname = $_SESSION['fname'] . " " . $_SESSION['lname'];
+        include "../assets/_connection.php";
         $srno = $_SESSION['id'];
-    }
-   	?>
-
-<?php
-		$sql = "SELECT * FROM user_details WHERE User='User'";
-    $result = mysqli_query($con,$sql);
-    while($row = mysqli_fetch_array($result))
-    {
+        $sql = "SELECT * FROM `user_details` WHERE `srno`= '$srno';";
+        $result = mysqli_query($con, $sql);
+        $row = mysqli_fetch_assoc($result);
         $imgurl = $row['profilepic_url'];
-    }
 ?>
 <!DOCTYPE html>
 
@@ -30,6 +22,11 @@
     <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
     <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css'>
     <link rel="stylesheet" href="../css/_nav.css">
+    <style>
+        .close {
+            opacity: 1 !important;
+        }
+        </style>
 </head>
 
 <body translate="no">
@@ -37,8 +34,8 @@
         <div class="logo"></div>
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="events.php">About us</a></li>
-            <li style="background-color: #2F65B9; color:#fff; padding: 5px 20px;"><a href="../main/index.php">GO PRO</a></li>
+            <li><a href="course.php">Courses</a></li>
+            <li><a href="../main/index.php">Log out</a></li>
         </ul>
         <div class="burger">
             <div class="line line1"></div>
@@ -59,7 +56,7 @@
         </header><br>
         <header>
             <div class="image-text">
-                <img id="imghide" src="../profilepic/<?php echo $imgurl?>" alt="myimg">
+                <img id="imghide" src="../profilepic/<?php echo $imgurl?>" alt="">
                 <div class="text logo-text">
                     <span class="name"><?php echo $fullname; ?></span>
                     <span class="profession"><?php echo $_SESSION['email']; ?></span>
@@ -69,6 +66,7 @@
         </header>
         <div class="menu-bar">
             <div class="menu">
+
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="#">
@@ -78,14 +76,20 @@
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Courses</span>
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Profile</span>
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <i class='bx bx-cog icon'></i>
                             <span class="text nav-text">Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-info-circle icon'></i>
+                            <span class="text nav-text">Know More</span>
                         </a>
                     </li>
                 </ul>
@@ -137,9 +141,14 @@
         }
     </script>
 
-<?php
-    }
-    $sql	?>
 </body>
 
 </html>
+
+<?php
+}
+else{
+    header("Location : ../main/index.php");
+    exit();
+}
+?>

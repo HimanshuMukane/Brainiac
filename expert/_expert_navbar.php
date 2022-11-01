@@ -1,5 +1,5 @@
 <?php
-    if((isset($_SESSION['id']) && isset($_SESSION['fname'])) && $_SESSION['usertype']==='admin'){
+    if((isset($_SESSION['id']) && isset($_SESSION['fname']))){
         $fullname = $_SESSION['fname'] . " " . $_SESSION['lname'];
         include "../assets/_connection.php";
         $srno = $_SESSION['id'];
@@ -34,8 +34,7 @@
         <div class="logo"></div>
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="events.php">Events</a></li>
-            <li><a href="internships">Internships</a></li>
+            <li><a href="manage.php">Edit Profile</a></li>
             <li><a href="../main/index.php">Log out</a></li>
         </ul>
         <div class="burger">

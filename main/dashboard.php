@@ -28,7 +28,7 @@
 </head>
 
 <body>
-	<?php include "../assets/_student_navbar.php";?>
+	<?php include "../assets/_user_navbar.php";?>
 	<section id="content">
 		<main>
 <<<<<<< Updated upstream

@@ -125,13 +125,11 @@
 
         <label>First Name</label>
 
-        <input name="first_name" placeholder="First Name" type="text">
+        <input name="fname" placeholder="First Name" type="text">
 
         <!-- Text input-->
-        <label>Middle Name</label>
-        <input name="middle_name" placeholder="Middle Name" type="text">
         <label>Last Name</label>
-        <input name="last_name" placeholder="Last Name" type="text">
+        <input name="lname" placeholder="Last Name" type="text">
 
         <!-- Text input-->
       </div>
@@ -151,7 +149,7 @@
       </div>
       <div class="form">
         <label>Username</label>
-        <input name="user_name" placeholder="Username" type="text">
+        <input name="UserName" placeholder="Username" type="text">
 
         <!-- Text input-->
         <label>E-Mail</label>
@@ -159,12 +157,7 @@
         <!-- Text input-->
 
         <label>Password</label>
-        <input name="user_password" placeholder="Password" type="password">
-
-        <!-- Text input-->
-
-        <label>Confirm Password</label>
-        <input name="confirm_password" placeholder="Confirm Password" type="password">
+        <input name="password" placeholder="Password" type="password">
 
       </div>
 
@@ -182,7 +175,7 @@
 
       <!-- Button -->
 <br><div style="text-align: center;">
-      <button class="button button2">REGISTER</button>
+      <button class="button button2" name="btn">REGISTER</button>
       <button class="button button3">RESET</button>
   </div>
 </div>
@@ -196,13 +189,13 @@
 		if(isset($_POST['btn']))
 		{
 		$fname = $_POST['fname'];
-		$mname = $_POST['mname'];
 		$lname = $_POST['lname'];
 		$gender = $_POST['gender'];
 		$email = $_POST['email'];
 		$UserName = $_POST['UserName'];
-		$password = $_POST['pass'];
-		$sql = "INSERT INTO user_details(fname,MiddleName,lname,Gender,email,UserName,Password) VALUES('$fname','$mname','$lname','$gender','$email','$UserName','$password')";
+		$password = $_POST['password'];
+    $user = 'expert';
+		$sql = "INSERT INTO user_details(fname,lname,gender,email,UserName,Password,user) VALUES('$fname','$lname','$gender','$email','$UserName','$password','expert')";
 		$result = mysqli_query($con,$sql);
 		if($result)
 		{

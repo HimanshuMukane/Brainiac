@@ -26,7 +26,7 @@
 </head>
 <body>
 	<?php
-		include "_student_navbar.php";
+		include "_user_navbar.php";
 		$con=mysqli_connect("localhost","root","","project");
 		if(!$con)
 			echo "Connection failed".mysqli_connect_error();
@@ -100,7 +100,7 @@
 		$gender = $_POST['gender'];
 		$email = $_POST['email'];
 		$password = $_POST['pass'];
-		$sql = "UPDATE user_details SET fname='$fname',lname='$lname',Gender='$gender',email='$email',Password='$password' WHERE User='User'";
+		$sql = "UPDATE user_details SET fname='$fname',lname='$lname',Gender='$gender',email='$email',Password='$password' WHERE User='paiduser'";
 		$result = mysqli_query($con,$sql);
 		if($result)
 		{

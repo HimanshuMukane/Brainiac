@@ -22,7 +22,7 @@
 
 <body>
 	<?php
-		include "nav.php";
+  include "_user_navbar.php";
 		$con=mysqli_connect("localhost","root","","project");
 		if(!$con)
 			echo "Connection failed".mysqli_connect_error();
@@ -32,14 +32,13 @@
 		{
 			$UserName=$_SESSION["UserName"];
 		}
-		$sql1 = "SELECT srno FROM user_details WHERE User='User'";
+		$sql1 = "SELECT srno FROM user_details WHERE User='paiduser'";
 		$result1 = mysqli_query($con,$sql1);
 		while($row = mysqli_fetch_array($result1))
 		{
 			$id = $row[0];
 		}
 	?>
-
 
 	<header id="head" class="secondary">
 		<div class="container">
@@ -76,7 +75,7 @@
 		{
 			$name = $_POST["name"]; 
             $msg = $_POST["message"];
-			$sql = "SELECT srno FROM user_details WHERE User='User'";
+			$sql = "SELECT srno FROM user_details WHERE User='paiduser'";
 			$result1 = mysqli_query($con,$sql);
 			while($row = mysqli_fetch_array($result1))
 			{

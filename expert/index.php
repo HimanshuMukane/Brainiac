@@ -58,7 +58,7 @@
 						<a href="manage.php">
 						<i class="fa fa-cogs fa-2x"></i>
 						<div class="text">
-							<h3>Manage Profile</h3>
+							<h3>Edit Profile</h3>
 							
 						</div>
 						</a>
