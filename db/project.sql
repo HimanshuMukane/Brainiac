@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2017 at 05:39 AM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: Nov 07, 2022 at 03:46 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,25 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `project`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin_info`
---
-
-CREATE TABLE `admin_info` (
-  `UserName` varchar(30) NOT NULL DEFAULT '',
-  `Password` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `admin_info`
---
-
-INSERT INTO `admin_info` (`UserName`, `Password`) VALUES
-('Admin', 'asdf'),
-('root', 'root');
 
 -- --------------------------------------------------------
 
@@ -58,7 +40,8 @@ CREATE TABLE `ans` (
 --
 
 INSERT INTO `ans` (`ExpertID`, `UserID`, `QueID`, `Question`, `Answer`) VALUES
-(1, 13, 1, 'What is HTML?', 'Hypertext Markup Language');
+(1, 13, 1, 'What is HTML?', 'Hypertext Markup Language'),
+(1, 13, 3, 'What is CSS?', 'Cant say');
 
 -- --------------------------------------------------------
 
@@ -73,6 +56,14 @@ CREATE TABLE `chapter` (
   `Info` varchar(5000) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `chapter`
+--
+
+INSERT INTO `chapter` (`Subject`, `ChapID`, `Title`, `Info`) VALUES
+('Maths', 5, 'Statistics', 'Stats tis tics'),
+('Maths', 6, 'Probability', 'Poro bala bili ty');
+
 -- --------------------------------------------------------
 
 --
@@ -80,7 +71,7 @@ CREATE TABLE `chapter` (
 --
 
 CREATE TABLE `expertsugg` (
-  `ExpertID` int(5) NOT NULL DEFAULT '0',
+  `ExpertID` int(5) NOT NULL DEFAULT 0,
   `Name` varchar(50) NOT NULL,
   `email` varchar(500) NOT NULL,
   `Subject` varchar(100) NOT NULL,
@@ -92,16 +83,18 @@ CREATE TABLE `expertsugg` (
 --
 
 INSERT INTO `expertsugg` (`ExpertID`, `Name`, `email`, `Subject`, `Description`) VALUES
-(1, 'Parth Varde', 'parthvarde50@gmail.com', 'About Chapter', 'Insert new chapter in CSS course');
+(1, 'Parth Varde', 'parthvarde50@gmail.com', 'About Chapter', 'Insert new chapter in CSS course'),
+(3, 'admin', 'him@gmail.com', '', 'cgvbhk'),
+(4, 'XYZ', 'him@gmail.com', 'XYZ', 'ASDWESFACXZ');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_details`
+-- Table structure for table `expert_info`
 --
 
-CREATE TABLE `user_details` (
-  `srno` int(2) NOT NULL,
+CREATE TABLE `expert_info` (
+  `Expert_id` int(2) NOT NULL,
   `fname` varchar(20) NOT NULL DEFAULT '',
   `MiddleName` varchar(20) NOT NULL,
   `lname` varchar(20) NOT NULL,
@@ -112,10 +105,10 @@ CREATE TABLE `user_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user_details`
+-- Dumping data for table `expert_info`
 --
 
-INSERT INTO `user_details` (`srno`, `fname`, `MiddleName`, `lname`, `email`, `Gender`, `UserName`, `Password`) VALUES
+INSERT INTO `expert_info` (`Expert_id`, `fname`, `MiddleName`, `lname`, `email`, `Gender`, `UserName`, `Password`) VALUES
 (1, 'Parth', 'Rakesh', 'Varde', 'parthvarde50@gmail.com', 'male', 'parth', 'asdf');
 
 -- --------------------------------------------------------
@@ -149,7 +142,7 @@ CREATE TABLE `purchase` (
   `Full` varchar(50) CHARACTER SET utf8 NOT NULL,
   `Addr` varchar(500) CHARACTER SET utf8 NOT NULL,
   `City` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `PinCode` int(20) NOT NULL,
+  `Pin` int(20) NOT NULL,
   `State` varchar(50) CHARACTER SET utf8 NOT NULL,
   `Email` varchar(100) CHARACTER SET utf8 NOT NULL,
   `Mobile` varchar(100) NOT NULL
@@ -159,7 +152,7 @@ CREATE TABLE `purchase` (
 -- Dumping data for table `purchase`
 --
 
-INSERT INTO `purchase` (`Book`, `OrderNo`, `Full`, `Addr`, `City`, `PinCode`, `State`, `Email`, `Mobile`) VALUES
+INSERT INTO `purchase` (`Book`, `OrderNo`, `Full`, `Addr`, `City`, `Pin`, `State`, `Email`, `Mobile`) VALUES
 ('HTML Complete Reference', 4, 'Parth Varde', 'dshjgjhdsjg					', 'Ahmedabad', 380051, 'Gujarat', 'parthvarde50@gmail.com', '8488061712');
 
 -- --------------------------------------------------------
@@ -181,7 +174,9 @@ CREATE TABLE `que` (
 
 INSERT INTO `que` (`QueID`, `UserID`, `UserName`, `Description`) VALUES
 (1, 13, 'parth', 'What is HTML?'),
-(3, 13, 'parth', 'What is CSS?');
+(3, 13, 'parth', 'What is CSS?'),
+(4, 2, 'Himanshu', 'waefdzxddasc'),
+(5, 2, 'Himanshu', 'waefdzxddasc');
 
 -- --------------------------------------------------------
 
@@ -190,7 +185,7 @@ INSERT INTO `que` (`QueID`, `UserID`, `UserName`, `Description`) VALUES
 --
 
 CREATE TABLE `responsesugg` (
-  `ExpertID` int(5) NOT NULL DEFAULT '0',
+  `ExpertID` int(5) NOT NULL DEFAULT 0,
   `description` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -206,6 +201,14 @@ CREATE TABLE `subject` (
   `Dinfo` varchar(850) CHARACTER SET utf8 NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `subject`
+--
+
+INSERT INTO `subject` (`Title`, `Info`, `Dinfo`) VALUES
+('Maths', 'Mathamatics', 'Maths'),
+('ALPHABETS', 'ALPHABETS', 'ALPHABETS');
+
 -- --------------------------------------------------------
 
 --
@@ -213,32 +216,31 @@ CREATE TABLE `subject` (
 --
 
 CREATE TABLE `user_details` (
-  `srno` int(12) NOT NULL,
+  `srno` int(11) NOT NULL,
   `fname` varchar(20) NOT NULL,
   `lname` varchar(20) NOT NULL,
-  `Gender` varchar(6) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `UserName` varchar(10) NOT NULL,
-  `Password` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `mobile` bigint(20) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `user` varchar(30) NOT NULL DEFAULT 'student',
+  `profilepic_url` varchar(500) NOT NULL,
+  `Gender` varchar(500) NOT NULL,
+  `UserName` varchar(110) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`srno`, `fname`, `lname`, `Gender`, `email`, `UserName`, `Password`) VALUES
-(13, 'Parth', 'Varde', 'male', 'parthvarde50@gmail.com', 'parth', 'asdf'),
-(14, 'Dhaval ', 'Dave', 'male', 'dhavaldave055@gmail.com', 'dhaval', 'asdf');
+INSERT INTO `user_details` (`srno`, `fname`, `lname`, `mobile`, `email`, `password`, `user`, `profilepic_url`, `Gender`, `UserName`) VALUES
+(1, 'Himanshu', 'Mukane', 1234567890, 'himanshu@gmail.com', '4122ea4f5490094a33d7cdba65136cf8', 'admin', 'himanshu.jpg', 'Male', 'Himanshu'),
+(2, 'Prajakta', 'Kambli', 7738516879, 'prajakta@gmail.com', 'fc2f0cb441eec1bab6e0656991c6b776', 'user', 'prajakta.jpg', 'female', 'Prajakta'),
+(3, 'Eashwari', 'Nagarkar', 1234567891, 'eashwari@gmail.com', 'ceb5520ca593ac9d233b2c1de033dd30', 'expert', 'eashwari.png', 'Female', 'Eashwari'),
+(4, 'Shrushti', 'Thakur', 1000000000, 'shrushti@gmail.com', '6d594622b4b7e7d2f35547957aaf3479', 'paiduser', 'Shrushti-Thakur4.png', 'Female', 'Shrushti');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin_info`
---
-ALTER TABLE `admin_info`
-  ADD PRIMARY KEY (`UserName`);
 
 --
 -- Indexes for table `chapter`
@@ -253,10 +255,10 @@ ALTER TABLE `expertsugg`
   ADD PRIMARY KEY (`ExpertID`);
 
 --
--- Indexes for table `user_details`
+-- Indexes for table `expert_info`
 --
-ALTER TABLE `user_details`
-  ADD PRIMARY KEY (`srno`);
+ALTER TABLE `expert_info`
+  ADD PRIMARY KEY (`Expert_id`);
 
 --
 -- Indexes for table `feedback`
@@ -292,8 +294,7 @@ ALTER TABLE `subject`
 -- Indexes for table `user_details`
 --
 ALTER TABLE `user_details`
-  ADD PRIMARY KEY (`srno`),
-  ADD UNIQUE KEY `UserName` (`UserName`);
+  ADD PRIMARY KEY (`srno`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -303,27 +304,27 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `chapter`
 --
 ALTER TABLE `chapter`
-  MODIFY `ChapID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `user_details`
---
-ALTER TABLE `user_details`
-  MODIFY `srno` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ChapID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
   MODIFY `OrderNo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `que`
 --
 ALTER TABLE `que`
-  MODIFY `QueID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `QueID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `srno` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `srno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

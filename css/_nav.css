@@ -11,7 +11,7 @@
 
 :root {
     --body-color: #f6f5f5;
-    --sidebar-color: #fff;
+    --sidebar-color: var(--body-color);
     --primary-color: #2F65B9;
     --primary-color-light: #f6f5ff;
     --toggle-color: #ddd;
@@ -30,7 +30,7 @@ body {
 
 ::selection {
     background-color: var(--primary-color);
-    color: #fff;
+    color: var(--body-color);
 }
 
 body.dark {
@@ -38,7 +38,7 @@ body.dark {
     --sidebar-color: #242526;
     --primary-color: #3a3b3c;
     --primary-color-light: #3a3b3c;
-    --toggle-color: #fff;
+    --toggle-color: var(--body-color);
     --text-color: rgb(234, 234, 234);
 }
 
@@ -204,9 +204,6 @@ body.dark .sidebar li a:hover .text {
 }
 
 @media screen and (max-width: 600px) {
-    .sidebar.close #imghide {
-        display: none;
-    }
     .sidebar .menu-bar {
         height: calc(100% - 125px);
         display: flex;
@@ -334,12 +331,12 @@ body.dark .home .text {
     display: flex;
     width: 40%;
     justify-content: space-around;
-    color: #fff;
+    color: var(--body-color);
     text-decoration: none;
 }
 
 .nav-links a {
-    color: #fff;
+    color: var(--body-color);
     /* font-size: 1rem; */
     text-decoration: none;
 }

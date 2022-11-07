@@ -73,7 +73,7 @@ label {
     }
 
         #head .tagline a {
-            color: #fff;
+            color: var(--body-color);
         }
 
     #head .btn {
@@ -101,7 +101,7 @@ label {
 
         #head .btn-default:active,
         #head .btn-default.active {
-            color: #fff;
+            color: var(--body-color);
             -webkit-box-shadow: inset 0px 0px 0px 3px #fff;
             -moz-box-shadow: inset 0px 0px 0px 3px #fff;
             box-shadow: inset 0px 0px 0px 3px #fff;
@@ -351,7 +351,7 @@ footer {
     }
 
         .footer1 a:hover {
-            color: #fff;
+            color: var(--body-color);
         }
 
     .footer1 .panel {
@@ -407,7 +407,7 @@ footer {
     }
 
         .footer2 a:hover {
-            color: #fff;
+            color: var(--body-color);
         }
 
     .footer2 p {
@@ -541,7 +541,7 @@ nav#filter {
 
         nav#filter a.current {
             background: #00bfff;
-            color: #fff;
+            color: var(--body-color);
         }
 
 .iconColor .fa {
@@ -592,7 +592,7 @@ nav#filter {
 }
 
 .portfolio-item .portfolio-desc a {
-    color: #fff;
+    color: var(--body-color);
     text-align: center;
     display: block;
 }
@@ -625,7 +625,7 @@ nav#filter {
 }
 
 .portfolio-item .portfolio-desc .folio-info p {
-    color: #ffffff;
+    color: var(--body-color);
     font-size: 12px;
 }
 
@@ -758,7 +758,7 @@ nav#filter {
                 padding: 15px;
                 font-size: 24px;
                 line-height: 24px;
-                color: #fff;
+                color: var(--body-color);
                 background: #4E4E4E;
                 margin-bottom: 30px;
                 border-top: 0;
@@ -786,7 +786,7 @@ nav#filter {
 
 .btn {
     background: #00bfff;
-    color: #fff;
+    color: var(--body-color);
 }
 .footer2 a {
 padding:4px 8px;

@@ -115,14 +115,14 @@ body {
   top: 0.4em;
   font-size: 3.8em;
   line-height: 1.0em;
-  color: #FFF;
+  color: var(--body-color);
 }
 .element.large .symbol {
   font-size: 4.5em;
 }
 
 .element.fake .symbol {
-  color: #000;
+  color: var(--text-color);
 }
 
 .element .name {

@@ -16,7 +16,7 @@
 
 :root {
     --body-color: #f6f5f5;
-    --sidebar-color: #fff;
+    --sidebar-color: var(--body-color);
     --primary-color: #2F65B9;
     --primary-color-light: #f6f5ff;
     --toggle-color: #ddd;
@@ -38,7 +38,7 @@
 .rwd-table tr:first-child {
   border-top: none;
   background:  var(--blue-color);
-  color: #fff;
+  color: var(--body-color);
 }
 
 .rwd-table tr {
@@ -72,7 +72,7 @@
   font-weight: bold;
   width: 120px;
   display: inline-block;
-  color: #000;
+  color: var(--text-color);
 }
 
 .rwd-table th,

@@ -107,7 +107,7 @@
 		<div id="courses">
 		<section class="container">
 			<div class="row">
-				<div class="col-md-4">
+				<!-- <div class="col-md-4">
 					<div class="featured-box">
 						<a href="order.php">
 						<i class="fa fa-cogs fa-2x"></i>
@@ -117,7 +117,7 @@
 						</div>
 						</a>
 					</div>
-				</div>
+				</div> -->
 				<div class="col-md-4">
 					<div class="featured-box">
 						<a href="addadmin.php">
@@ -129,7 +129,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<!-- <div class="col-md-4">
 					<div class="featured-box">
 						<a href="feedback.php">
 						<i class="fa fa-cogs fa-2x"></i>
@@ -139,7 +139,7 @@
 						</div>
 						</a>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 </body>

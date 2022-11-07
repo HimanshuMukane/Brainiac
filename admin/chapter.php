@@ -10,7 +10,7 @@
     
 :root { 
     --body-color: #f6f5f5;
-    --sidebar-color: #fff;
+    --sidebar-color: var(--body-color);
     --primary-color: #2F65B9;
     --primary-color-light: #f6f5ff;
     --toggle-color: #ddd;
@@ -84,7 +84,7 @@
       align-items: center;
     } 
 .nav-links a {
-    color: #fff;
+    color: var(--body-color);
     font-size: 1rem !important;
     text-decoration: none;
 }

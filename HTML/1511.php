@@ -98,7 +98,7 @@
     z-index: 2;
     font-family: Poppins;
     font-size: 20px;
-    color: #fff;
+    color: var(--body-color);
     font-weight: 700;
     text-align: center;
     padding-top: 10px;
@@ -113,7 +113,7 @@
     z-index: 2;
     font-family: Poppins;
     font-size: 20px;
-    color: #fff;
+    color: var(--body-color);
     font-weight: 700;
     text-align: center;
     padding-top: 10px;

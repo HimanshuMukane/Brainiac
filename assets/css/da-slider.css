@@ -59,7 +59,7 @@
 }
 
 .da-slide h2 {
-	color: #fff;
+	color: var(--body-color);
 	font-size: 54px;
 	width: 80%;
 	top: 0px;
@@ -72,7 +72,7 @@
 .da-slide p {
 	width: 80%;
 	top: 115px;
-	color: #fff;
+	color: var(--body-color);
 	font-size: 24px;
 	line-height: 26px;
 	height: 80px;
@@ -91,7 +91,7 @@
 
 .da-slide .da-link {
 	top: 270px; /*depends on p height*/
-	color: #fff;
+	color: var(--body-color);
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 	border: 3px solid rgba(255,255,255,0.8);
 	padding: 2px 20px 0px;

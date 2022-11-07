@@ -24,7 +24,7 @@
 .rwd-table tr:first-child {
   border-top: none;
   background: #428bca;
-  color: #fff;
+  color: var(--body-color);
 }
 
 .rwd-table tr {
@@ -58,7 +58,7 @@
   font-weight: bold;
   width: 120px;
   display: inline-block;
-  color: #000;
+  color: var(--text-color);
 }
 
 .rwd-table th,
@@ -123,7 +123,7 @@ h1 {
   text-align: center;
   font-size: 2.4em;
   margin-top: 100px;
-  color: #000000;
+  color: var(--text-color);
 }
 .container {
   display: block;
